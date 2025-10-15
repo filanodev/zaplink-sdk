@@ -1,0 +1,21 @@
+# @zaplink/core - NPM ignore file
+
+# Source files
+src/
+*.ts
+!*.d.ts
+tsconfig.json
+
+# Tests
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Config
+vite.config.ts
+vitest.config.ts
+
+# Misc
+*.log
+.DS_Store
+node_modules/

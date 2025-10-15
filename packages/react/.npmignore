@@ -1,0 +1,24 @@
+# @zaplink/react - NPM ignore file
+
+# Source files
+src/
+*.ts
+*.tsx
+!*.d.ts
+tsconfig.json
+
+# Tests
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__/
+
+# Config
+vite.config.ts
+vitest.config.ts
+
+# Misc
+*.log
+.DS_Store
+node_modules/

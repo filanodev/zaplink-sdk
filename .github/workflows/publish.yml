@@ -1,0 +1,68 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.0.0)'
+        required: false
+
+jobs:
+  publish:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 📥 Install dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build packages
+        run: pnpm build
+
+      - name: 🔍 Verify builds
+        run: |
+          echo "Verifying package builds..."
+          if [ ! -f "packages/core/dist/index.js" ]; then
+            echo "❌ Core package build failed"
+            exit 1
+          fi
+          if [ ! -f "packages/react/dist/index.js" ]; then
+            echo "❌ React package build failed"
+            exit 1
+          fi
+          echo "✅ All packages built successfully"
+
+      - name: 📦 Publish @zaplink/core
+        working-directory: packages/core
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 📦 Publish @zaplink/react
+        working-directory: packages/react
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 🎉 Success
+        run: |
+          echo "✅ Packages published successfully!"
+          echo "📦 @zaplink/core"
+          echo "📦 @zaplink/react"

@@ -1,27 +1,46 @@
 # Dependencies
 node_modules/
 .pnpm-store/
+.pnpm-debug.log
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
 
 # Build outputs
 dist/
 build/
 *.tsbuildinfo
+.turbo/
+.cache/
 
 # Environment files
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
 
-# IDEs
+# IDEs and editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
+.project
+.classpath
+.settings/
+*.sublime-*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
 # Logs
 logs/
@@ -30,11 +49,89 @@ npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # Testing
 coverage/
 .nyc_output/
+*.lcov
 
-# Temp
+# Temporary files
 tmp/
 temp/
+*.tmp
+*.bak
+*.swp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.parcel-cache
+
+# Next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+dist/
+
+# Gatsby files
+.cache/
+
+# vuepress
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Misc
+.turbo
+.vercel
+.netlify
+
+# Local development
+*.local
+
+# Build artifacts that should not be committed
+packages/*/dist/
+examples/*/dist/
+examples/*/node_modules/
+
+# Don't commit lock files (pnpm workspace gère ça)
+**/package-lock.json
+**/yarn.lock
