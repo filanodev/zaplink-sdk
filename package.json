@@ -1,0 +1,38 @@
+{
+  "name": "zaplink-sdk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zaplink SDK - Easy Pi Network integration for JavaScript applications",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "clean": "pnpm -r clean && rm -rf node_modules"
+  },
+  "keywords": [
+    "pi-network",
+    "pi",
+    "cryptocurrency",
+    "payment",
+    "blockchain",
+    "sdk",
+    "zaplink"
+  ],
+  "author": "Zaplink",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filanodev/zaplink-sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "tsup": "^8.0.1",
+    "vitest": "^1.2.0"
+  }
+}

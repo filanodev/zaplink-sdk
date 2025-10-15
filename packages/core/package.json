@@ -1,0 +1,48 @@
+{
+  "name": "@zaplink/core",
+  "version": "1.0.0",
+  "description": "Core Zaplink SDK for vanilla JavaScript",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "pi-network",
+    "pi",
+    "cryptocurrency",
+    "payment",
+    "blockchain",
+    "sdk",
+    "zaplink"
+  ],
+  "author": "Zaplink",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filanodev/zaplink-sdk",
+    "directory": "packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  }
+}
